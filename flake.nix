@@ -19,6 +19,7 @@
               withBlas = false;
               withNtl = false;
             }).overrideAttrs { doCheck = false; };
+            static = true;
           };
         }
       );
