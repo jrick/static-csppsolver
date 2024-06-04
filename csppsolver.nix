@@ -27,7 +27,7 @@ buildGoModule {
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ gmp mpfr flint3 ];
 
-  ldflags = lib.optionals static [ "-linkmode=external" "-extldflags=-static" ];
+  ldflags = [ "-s" "-w" ] ++ lib.optionals static [ "-linkmode=external" "-extldflags=-static" ];
 
   CGO_LDFLAGS = "-O2 -g -L${flint3}/lib -lflint -lm";
   CGO_ENABLED = 1;
