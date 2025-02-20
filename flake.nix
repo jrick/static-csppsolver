@@ -15,6 +15,7 @@
         in {
           csppsolver = pkgs.pkgsCross.musl64.callPackage ./csppsolver.nix {
             inherit (pkgsStatic) gmp mpfr;
+            buildGoModule = pkgs.pkgsCross.musl64.buildGo124Module;
             flint3 = (pkgsStatic.flint3.override {
               withBlas = false;
               withNtl = false;
